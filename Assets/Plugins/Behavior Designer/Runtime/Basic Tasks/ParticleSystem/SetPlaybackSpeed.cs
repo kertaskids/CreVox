@@ -29,7 +29,7 @@ namespace BehaviorDesigner.Runtime.Tasks.Basic.UnityParticleSystem
                 Debug.LogWarning("ParticleSystem is null");
                 return TaskStatus.Failure;
             }
-
+            // [Obsolete]
             particleSystem.playbackSpeed = playbackSpeed.Value;
 
             return TaskStatus.Success;
