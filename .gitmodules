@@ -1,3 +1,6 @@
 [submodule "Assets/Plugins/DungeonGenerator"]
 	path = Assets/Plugins/DungeonGenerator
 	url = https://github.com/grass0916/DungeonGenerator
+[submodule "Assets/PacingBasedGenerator"]
+	path = Assets/PacingBasedGenerator
+	url = https://github.com/kertaskids/PacingBasedGenerator.git
