@@ -1,4 +1,6 @@
-﻿//  Copyright (c) 2015, Ben Hopkins (kode80)
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+//  Copyright (c) 2015, Ben Hopkins (kode80)
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification, 
@@ -45,7 +47,7 @@ Shader "kode80/BackFaceDepth"
 			v2f vert( appdata_base v) 
 			{
 			    v2f output;
-			    output.position = mul( UNITY_MATRIX_MVP, v.vertex);
+			    output.position = UnityObjectToClipPos( v.vertex);
 			    output.linearDepth = float4( 0.0, 0.0, COMPUTE_DEPTH_01, 0.0);
 			    return output;
 			}

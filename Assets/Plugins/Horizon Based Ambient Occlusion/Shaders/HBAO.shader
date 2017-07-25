@@ -1,4 +1,6 @@
-﻿Shader "Hidden/HBAO"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Hidden/HBAO"
 {
 	Properties {
 		_MainTex ("", 2D) = "" {}
@@ -87,7 +89,7 @@
 			if (_MainTex_TexelSize.y < 0)
 				o.uv2.y = 1 - o.uv2.y;
 			#endif
-			outpos = mul(UNITY_MATRIX_MVP, v.vertex);
+			outpos = UnityObjectToClipPos(v.vertex);
 			return o;
 		}
 
@@ -112,7 +114,7 @@
 			if (_MainTex_TexelSize.y < 0)
 				o.uv2.y = 1 - o.uv2.y;
 			#endif
-			outpos = mul(UNITY_MATRIX_MVP, float4(v.vertex.xy * (_LayerRes_TexelSize.zw / _FullRes_TexelSize.zw) + _LayerOffset * _FullRes_TexelSize.xy, v.vertex.zw));
+			outpos = UnityObjectToClipPos(float4(v.vertex.xy * (_LayerRes_TexelSize.zw / _FullRes_TexelSize.zw) + _LayerOffset * _FullRes_TexelSize.xy, v.vertex.zw));
 			return o;
 		}
 

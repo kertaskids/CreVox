@@ -1,4 +1,6 @@
-﻿//  Copyright (c) 2015, Ben Hopkins (kode80)
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+//  Copyright (c) 2015, Ben Hopkins (kode80)
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification, 
@@ -59,7 +61,7 @@ Shader "kode80/SSRBlurCombiner"
 			v2f vert(appdata_img v)
 			{
 			   	v2f o;
-				o.position = mul( UNITY_MATRIX_MVP, v.vertex);
+				o.position = UnityObjectToClipPos( v.vertex);
 				o.uv = v.texcoord;
 				
 			   	return o;
