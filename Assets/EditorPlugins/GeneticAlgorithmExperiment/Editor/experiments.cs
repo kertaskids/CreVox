@@ -242,8 +242,9 @@ namespace CrevoxExtend {
 
 			// Record the shot.
 			EditorApplication.ExecuteMenuItem("Window/Game");
-			Application.CaptureScreenshot(EXPERIMENT_DIR + "Screenshot.png", 2);
-			// Open this directory in explorer.
+            //Application.CaptureScreenshot(EXPERIMENT_DIR + "Screenshot.png", 2);
+            UnityEngine.ScreenCapture.CaptureScreenshot(EXPERIMENT_DIR + "Screenshot.png", 2);
+            // Open this directory in explorer.
 			EditorUtility.RevealInFinder(EXPERIMENT_DIR);
 		}
 

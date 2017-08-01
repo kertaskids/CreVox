@@ -11,16 +11,16 @@ public class TestRealTimeRun : MonoBehaviour {
 	[Header("Test generate stage by properties")]
 	[Tooltip("我是按鈕")]
 	public bool testGenerateLevel = false;
-<<<<<<< HEAD:Assets/WillDelete/Useless/TestRealTimeRun.cs
-	public string XmlPath = @"Issac_Flat.xml";
-	public string SpaceXmlPath = @"SpaceAlphabet.xml";
-	public string ResourcePath = @"Assets\Resources\CreVox\VolumeData\IsaacNew";
-	public string VGXmlPath = @"IsaacVolumeGeneration.xml";
-=======
-	public string XmlPath = @"OnlyEntrance.xml";
+//    <<<<<<< HEAD:Assets/WillDelete/Useless/TestRealTimeRun.cs
+//        public string XmlPath = @"Issac_Flat.xml";
+        public string SpaceXmlPath = @"SpaceAlphabet.xml";
+//        public string ResourcePath = @"Assets\Resources\CreVox\VolumeData\IsaacNew";
+        public string VGXmlPath = @"IsaacVolumeGeneration.xml";
+//    =======
+    public string XmlPath = @"OnlyEntrance.xml";
 	public string ResourcePath = @"OnlyEntrance";
 	public string ArtPack = "AncientPalace";
->>>>>>> upstream/GA:Assets/EditorPlugins/WillDelete/Useless/TestRealTimeRun.cs
+//>>>>>>> upstream/GA:Assets/EditorPlugins/WillDelete/Useless/TestRealTimeRun.cs
 
 	[Header("Test generate stage from global setting")]
 	[Tooltip("我是按鈕")]
