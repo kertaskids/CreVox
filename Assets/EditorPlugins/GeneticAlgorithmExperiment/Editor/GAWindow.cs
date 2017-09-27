@@ -50,7 +50,7 @@ namespace CrevoxExtend {
 			buttonStyle.fontSize = 18;
 			buttonStyle.margin = new RectOffset(0, 0, 5, 10);
 
-			if (GUILayout.Button("運行 GA 設置遊戲物件", buttonStyle, GUILayout.Height(30))) {
+			if (GUILayout.Button("Run GA to set the game object", buttonStyle, GUILayout.Height(30))) {
 				// Run GA.
 				CreVoxGA.Initialize();
 				foreach (var roomPatternName in RoomPattern.Keys) {
@@ -79,8 +79,8 @@ namespace CrevoxExtend {
 			}
 
 			// Generation count and population count.
-			GenerationCount = Math.Max(1, EditorGUILayout.IntField("世代數量", GenerationCount, textFieldStyle));
-			PopulationCount = Math.Max(2, EditorGUILayout.IntField("染色體數量", PopulationCount, textFieldStyle));
+			GenerationCount = Math.Max(1, EditorGUILayout.IntField("Number of Generations", GenerationCount, textFieldStyle));
+			PopulationCount = Math.Max(2, EditorGUILayout.IntField("Number of Chromosomes", PopulationCount, textFieldStyle));
 
 			// List of all experiments.
 			WindowScrollPosition = EditorGUILayout.BeginScrollView(WindowScrollPosition);
@@ -93,13 +93,13 @@ namespace CrevoxExtend {
 
 				if (roomPattern.IsFoldout) {
 					// Fitness weights (-10 ~ 10).
-					weights["neglected"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("死角點權重", weights["neglected"], textFieldStyle)));
-					weights["block"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("阻擋點權重", weights["block"], textFieldStyle)));
-					weights["intercept"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("攔截點權重", weights["intercept"], textFieldStyle)));
-					weights["patrol"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("巡邏點權重", weights["patrol"], textFieldStyle)));
-					weights["guard"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("守衛點權重", weights["guard"], textFieldStyle)));
-					weights["dominated"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("至高點權重", weights["dominated"], textFieldStyle)));
-					weights["support"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("支援點權重", weights["support"], textFieldStyle)));
+					weights["neglected"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-neglected", weights["neglected"], textFieldStyle)));
+					weights["block"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-block", weights["block"], textFieldStyle)));
+					weights["intercept"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-intercept", weights["intercept"], textFieldStyle)));
+					weights["patrol"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-patrol", weights["patrol"], textFieldStyle)));
+					weights["guard"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-guard", weights["guard"], textFieldStyle)));
+					weights["dominated"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-dominated", weights["dominated"], textFieldStyle)));
+					weights["support"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-support", weights["support"], textFieldStyle)));
 				}
 			}
 			EditorGUILayout.EndScrollView();

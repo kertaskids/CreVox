@@ -46,14 +46,14 @@ namespace CrevoxExtend {
 			buttonStyle.margin = new RectOffset(0, 0, 5, 10);
 
 			if (Experiments.Count == 0) {
-				Experiments.Add("實驗 A", new Experiment("實驗_A", true));
-				Experiments.Add("實驗 B", new Experiment("實驗_B", false));
-				Experiments.Add("實驗 C", new Experiment("實驗_C", false));
-				Experiments.Add("實驗 D", new Experiment("實驗_D", false));
-				Experiments.Add("實驗 E", new Experiment("實驗_E", false));
-				Experiments.Add("實驗 F", new Experiment("實驗_F", false));
-				Experiments.Add("實驗 G", new Experiment("實驗_G", false));
-				Experiments.Add("實驗 H", new Experiment("實驗_H", false));
+				Experiments.Add("Experiment A", new Experiment("Experiment_A", true));
+				Experiments.Add("Experiment B", new Experiment("Experiment_B", false));
+				Experiments.Add("Experiment C", new Experiment("Experiment_C", false));
+				Experiments.Add("Experiment D", new Experiment("Experiment_D", false));
+				Experiments.Add("Experiment E", new Experiment("Experiment_E", false));
+				Experiments.Add("Experiment F", new Experiment("Experiment_F", false));
+				Experiments.Add("Experiment G", new Experiment("Experiment_G", false));
+				Experiments.Add("Experiment H", new Experiment("Experiment_H", false));
 			}
 
 			EditorGUI.BeginDisabledGroup(!(GameObject.Find("VolumeManager(Generated)").transform.childCount == 1));
@@ -78,17 +78,17 @@ namespace CrevoxExtend {
 			}
 
 			// Run the first experiment.
-			if (GUILayout.Button("運行第一筆實驗", buttonStyle, GUILayout.Height(30))) {
+			if (GUILayout.Button("Run Initial Experiment", buttonStyle, GUILayout.Height(30))) {
 				var experiment = Experiments[Experiments.Keys.First()];
 				LaunchGAExperiment(experiment, false);
 			}
-			if (GUILayout.Button("拍攝上視圖", buttonStyle, GUILayout.Height(30))) {
+			if (GUILayout.Button("Screenshot from Top View", buttonStyle, GUILayout.Height(30))) {
 				// Store a screenshot from main camera.
 				var volumeManager = GameObject.Find("VolumeManager(Generated)");
 				LayoutScreenshot(volumeManager);
 			}
 			// Write into the files.
-			if (GUILayout.Button("多個實驗寫檔輸出", buttonStyle, GUILayout.Height(30))) {
+			if (GUILayout.Button("Multi-Experiment Export", buttonStyle, GUILayout.Height(30))) {
 				var activedExperiments = new Dictionary<string, Experiment>();
 
 				foreach (var experimentName in Experiments.Keys) {
@@ -120,20 +120,20 @@ namespace CrevoxExtend {
 				if (experiment.IsFoldout) {
 					EditorGUI.BeginDisabledGroup(! experiment.IsActived);
 					// Generation count and population count.
-					experiment.ExperimentCount = Math.Max(1, EditorGUILayout.IntField("實驗次數", experiment.ExperimentCount, textFieldStyle));
-					experiment.GenerationCount = Math.Max(1, EditorGUILayout.IntField("世代數量", experiment.GenerationCount, textFieldStyle));
-					experiment.PopulationCount = Math.Max(2, EditorGUILayout.IntField("染色體數量", experiment.PopulationCount%2 == 0? experiment.PopulationCount: experiment.PopulationCount+1, textFieldStyle));
+					experiment.ExperimentCount = Math.Max(1, EditorGUILayout.IntField("Number of Experiments", experiment.ExperimentCount, textFieldStyle));
+					experiment.GenerationCount = Math.Max(1, EditorGUILayout.IntField("Number of Generations", experiment.GenerationCount, textFieldStyle));
+					experiment.PopulationCount = Math.Max(2, EditorGUILayout.IntField("Number of Chromosomes", experiment.PopulationCount%2 == 0? experiment.PopulationCount: experiment.PopulationCount+1, textFieldStyle));
 					// Fitness weights (-10 ~ 10).
-					weights["neglected"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("死角點權重", weights["neglected"], textFieldStyle)));
-					weights["block"]     = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("阻擋點權重", weights["block"],     textFieldStyle)));
-					weights["intercept"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("攔截點權重", weights["intercept"], textFieldStyle)));
-					weights["patrol"]    = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("巡邏點權重", weights["patrol"],    textFieldStyle)));
-					weights["guard"]     = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("守衛點權重", weights["guard"],     textFieldStyle)));
-					weights["dominated"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("至高點權重", weights["dominated"], textFieldStyle)));
-					weights["support"]   = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("支援點權重", weights["support"],   textFieldStyle)));
+					weights["neglected"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-neglected", weights["neglected"], textFieldStyle)));
+					weights["block"]     = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-block", weights["block"],     textFieldStyle)));
+					weights["intercept"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-intercept", weights["intercept"], textFieldStyle)));
+					weights["patrol"]    = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-patrol", weights["patrol"],    textFieldStyle)));
+					weights["guard"]     = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-guard", weights["guard"],     textFieldStyle)));
+					weights["dominated"] = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-dominated", weights["dominated"], textFieldStyle)));
+					weights["support"]   = Math.Max(-10, Math.Min(10, EditorGUILayout.IntField("W-support", weights["support"],   textFieldStyle)));
 					EditorGUI.EndDisabledGroup();
 					// Is actived or not.
-					experiment.IsActived = EditorGUILayout.Toggle("多實驗模式下，是否生效", experiment.IsActived);
+					experiment.IsActived = EditorGUILayout.Toggle("Activated for Multi-Experiments", experiment.IsActived);
 				}
 			}
 			EditorGUILayout.EndScrollView();

@@ -55,6 +55,8 @@ namespace NTUSTGA {
 					newGeneration.Add(target2);
 				}
 				onGenrationEnd(currentGenrationID, currentGeneration, newGeneration);
+
+                //Evaluation
 				currentGeneration = newGeneration;
 			}
 			for(var i = 0; i < currentGeneration.Count; ++i) {
