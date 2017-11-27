@@ -28,5 +28,3 @@ normal              From  Main Dungeon - Exporation : Normal
 
 normal              From  Main Dungeon - Exporation : Normal 
 
-any any any any any From  Non-linear path - Flat Rooms : any any any any any 
-

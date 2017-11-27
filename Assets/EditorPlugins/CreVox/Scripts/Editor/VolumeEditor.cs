@@ -358,7 +358,7 @@ namespace CreVox
 				WorldPos pos = EditTerrain.GetBlockPos (hitFix, false);
 				hitFix.point = new Vector3 (pos.x * vg.w, pos.y * vg.h, pos.z * vg.d);
 				
-				Handles.RectangleCap (0, hitFix.point + new Vector3 (0, vg.hh, 0), Quaternion.Euler (90, 0, 0), vg.hw);
+				Handles.RectangleHandleCap (0, hitFix.point + new Vector3 (0, vg.hh, 0), Quaternion.Euler (90, 0, 0), vg.hw, EventType.Repaint);
 				Handles.DrawLine (hit.point, hitFix.point);
 				volume.useBox = true;
 				BoxCursorUtils.UpdateBox (volume.box, hitFix.point, Vector3.zero);
@@ -400,13 +400,13 @@ namespace CreVox
                 LevelPiece.PivotType pivot = _pieceSelected.pivot;
 				if (CheckPlaceable ((int)gPos.x, (int)gPos.z, pivot)) {
 					Handles.color = Color.red;
-					Handles.RectangleCap (0, new Vector3 (gx, gy, gz), Quaternion.Euler (90, 0, 0), 0.5f);
+					Handles.RectangleHandleCap (0, new Vector3 (gx, gy, gz), Quaternion.Euler (90, 0, 0), 0.5f, EventType.Repaint);
 					Handles.color = Color.white;
 				}
 
 				Handles.color = Color.white;
 				Handles.lighting = true;
-				Handles.RectangleCap (0, hitFix.point - new Vector3 (0, vg.hh - gPos.y, 0), Quaternion.Euler (90, 0, 0), vg.hw);
+				Handles.RectangleHandleCap (0, hitFix.point - new Vector3 (0, vg.hh - gPos.y, 0), Quaternion.Euler (90, 0, 0), vg.hw, EventType.Repaint);
 				Handles.DrawLine (hit.point, hitFix.point);
 
 				volume.useBox = true;
@@ -486,7 +486,7 @@ namespace CreVox
 					float handleSize = HandleUtility.GetHandleSize (pos) * 0.15f;
 					Handles.color = new Color (0f / 255f, 202f / 255f, 255f / 255f, 0.1f);
 					facingCamera = Camera.current.transform.rotation * Quaternion.Euler (0, 0, 180);
-					selected = Handles.Button (pos, facingCamera, handleSize, handleSize, Handles.SphereCap);
+					selected = Handles.Button (pos, facingCamera, handleSize, handleSize, Handles.SphereHandleCap);
 					Handles.color = defColor;
 					//compare selectedItemID.
 					if (selected && button > -1 && button < 2) {
