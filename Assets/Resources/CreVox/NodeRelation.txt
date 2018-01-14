@@ -1,0 +1,30 @@
+entrance goal Normal Normal Normal Normal Normal From  Main Dungeon - Main Path : Start 
+
+Normal any safe     From  Main Dungeon - Extend Safe : Normal any 
+
+boss goal           From  Main Dungeon - Boss room : Normal goal 
+
+normal              From  Main Dungeon - Exporation : Normal 
+
+Normal any secret Speical bomb bomb From  Main Dungeon - Set Serect : Normal any 
+
+Normal Normal       From  Main Dungeon - More branch : Normal 
+
+any any any any any From  Non-linear path - Flat Rooms : any any any any any 
+
+Normal Normal       From  Main Dungeon - More branch : Normal 
+
+lock treasure       From  Main Dungeon - Treasure : Speical 
+
+normal              From  Main Dungeon - Exporation : Normal 
+
+any any any any any From  Non-linear path - Flat Rooms : any any any any any 
+
+normal              From  Main Dungeon - Exporation : Normal 
+
+normal              From  Main Dungeon - Exporation : Normal 
+
+normal              From  Main Dungeon - Exporation : Normal 
+
+normal              From  Main Dungeon - Exporation : Normal 
+
